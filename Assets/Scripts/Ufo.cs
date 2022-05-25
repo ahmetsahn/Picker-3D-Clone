@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ufo : MonoBehaviour
 {
-    [SerializeField] GameObject cubePrefab;
+    [SerializeField] GameObject spherePrefab;
     HookController hookController;
     private bool goRightPos = true;
     private bool goRightPos2 = false;
@@ -16,7 +16,7 @@ public class Ufo : MonoBehaviour
     private bool goLeftPos = false;
     private bool goLeftPos2 = false;
     private bool goUpPos = false;
-    private bool instantiateCube = true;
+    private bool instantiateSphere = true;
     
 
     private void Start()
@@ -46,13 +46,12 @@ public class Ufo : MonoBehaviour
                 Vector3 forwardPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 15);
                 transform.position = Vector3.MoveTowards(transform.position, forwardPos, Time.deltaTime * 10);
 
-                if (instantiateCube)
+                if (instantiateSphere)
                 {
                     StartCoroutine(InstantiateTrue());
-                    Instantiate(cubePrefab, transform.position, Quaternion.identity);
-                    instantiateCube = false;
+                    Instantiate(spherePrefab, transform.position, Quaternion.identity);
+                    instantiateSphere = false;
                 }
-
             }
 
             else if (goLeftPos)
@@ -61,11 +60,11 @@ public class Ufo : MonoBehaviour
                 Vector3 leftPos = new Vector3(transform.position.x - 4, transform.position.y, transform.position.z);
                 transform.position = Vector3.MoveTowards(transform.position, leftPos, Time.deltaTime * 10);
 
-                if (instantiateCube)
+                if (instantiateSphere)
                 {
                     StartCoroutine(InstantiateTrue2());
-                    Instantiate(cubePrefab, transform.position, Quaternion.identity);
-                    instantiateCube = false;
+                    Instantiate(spherePrefab, transform.position, Quaternion.identity);
+                    instantiateSphere = false;
                 }
             }
 
@@ -75,28 +74,26 @@ public class Ufo : MonoBehaviour
                 Vector3 forwardPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 15);
                 transform.position = Vector3.MoveTowards(transform.position, forwardPos, Time.deltaTime * 10);
 
-                if (instantiateCube)
+                if (instantiateSphere)
                 {
                     StartCoroutine(InstantiateTrue());
-                    Instantiate(cubePrefab, transform.position, Quaternion.identity);
-                    instantiateCube = false;
+                    Instantiate(spherePrefab, transform.position, Quaternion.identity);
+                    instantiateSphere = false;
                 }
             }
 
             else if (goRightPos2)
             {
-
                 StartCoroutine(SixthMove());
                 Vector3 midPos = new Vector3(transform.position.x + 2, transform.position.y, transform.position.z);
                 transform.position = Vector3.MoveTowards(transform.position, midPos, Time.deltaTime * 10);
 
-                if (instantiateCube)
+                if (instantiateSphere)
                 {
                     StartCoroutine(InstantiateTrue2());
-                    Instantiate(cubePrefab, transform.position, Quaternion.identity);
-                    instantiateCube = false;
+                    Instantiate(spherePrefab, transform.position, Quaternion.identity);
+                    instantiateSphere = false;
                 }
-
             }
 
             else if (goForwardPos3)
@@ -105,11 +102,11 @@ public class Ufo : MonoBehaviour
                 Vector3 forwardPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 15);
                 transform.position = Vector3.MoveTowards(transform.position, forwardPos, Time.deltaTime * 10);
 
-                if (instantiateCube)
+                if (instantiateSphere)
                 {
                     StartCoroutine(InstantiateTrue());
-                    Instantiate(cubePrefab, transform.position, Quaternion.identity);
-                    instantiateCube = false;
+                    Instantiate(spherePrefab, transform.position, Quaternion.identity);
+                    instantiateSphere = false;
                 }
             }
 
@@ -119,11 +116,11 @@ public class Ufo : MonoBehaviour
                 Vector3 leftPos = new Vector3(transform.position.x - 4, transform.position.y, transform.position.z);
                 transform.position = Vector3.MoveTowards(transform.position, leftPos, Time.deltaTime * 10);
 
-                if (instantiateCube)
+                if (instantiateSphere)
                 {
                     StartCoroutine(InstantiateTrue2());
-                    Instantiate(cubePrefab, transform.position, Quaternion.identity);
-                    instantiateCube = false;
+                    Instantiate(spherePrefab, transform.position, Quaternion.identity);
+                    instantiateSphere = false;
                 }
             }
 
@@ -133,11 +130,11 @@ public class Ufo : MonoBehaviour
                 Vector3 forwardPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 15);
                 transform.position = Vector3.MoveTowards(transform.position, forwardPos, Time.deltaTime * 10);
 
-                if (instantiateCube)
+                if (instantiateSphere)
                 {
                     StartCoroutine(InstantiateTrue());
-                    Instantiate(cubePrefab, transform.position, Quaternion.identity);
-                    instantiateCube = false;
+                    Instantiate(spherePrefab, transform.position, Quaternion.identity);
+                    instantiateSphere = false;
                 }
             }
 
@@ -147,11 +144,11 @@ public class Ufo : MonoBehaviour
                 Vector3 midPos = new Vector3(transform.position.x + 2, transform.position.y, transform.position.z);
                 transform.position = Vector3.MoveTowards(transform.position, midPos, Time.deltaTime * 10);
 
-                if (instantiateCube)
+                if (instantiateSphere)
                 {
                     StartCoroutine(InstantiateTrue2());
-                    Instantiate(cubePrefab, transform.position, Quaternion.identity);
-                    instantiateCube = false;
+                    Instantiate(spherePrefab, transform.position, Quaternion.identity);
+                    instantiateSphere = false;
                 }
             }
 
@@ -175,7 +172,6 @@ public class Ufo : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         goForwardPos = false;
-        
         goLeftPos = true;
     }
 
@@ -192,7 +188,6 @@ public class Ufo : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         goForwardPos2 = false;
-       
         goRightPos2 = true;
     }
 
@@ -208,7 +203,6 @@ public class Ufo : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         goForwardPos3 = false;
-       
         goLeftPos2 = true;
     }
 
@@ -224,7 +218,6 @@ public class Ufo : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         goForwardPos4 = false;
-        
         goRightPos3 = true;
     }
 
@@ -245,13 +238,12 @@ public class Ufo : MonoBehaviour
     IEnumerator InstantiateTrue()
     {
         yield return new WaitForSeconds(0.07f);
-        instantiateCube = true;
+        instantiateSphere = true;
     }
 
     IEnumerator InstantiateTrue2()
     {
         yield return new WaitForSeconds(0.13f);
-        instantiateCube = true;
+        instantiateSphere = true;
     }
-
 }

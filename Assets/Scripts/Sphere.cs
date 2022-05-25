@@ -40,8 +40,6 @@ public class Sphere : MonoBehaviour
         }
     }
 
-
-
     private void HookOffsetControl()
     {
         if(hook.position.z - transform.localPosition.z > 30)
@@ -71,8 +69,6 @@ public class Sphere : MonoBehaviour
         }
     }
 
-  
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("SphereCase") && collisionOn)
@@ -80,7 +76,6 @@ public class Sphere : MonoBehaviour
             StartCoroutine(setColor());
             collisionOn = false;
             Destroy(gameObject, 2f);
-            
         }
 
         if(collision.gameObject.CompareTag("SphereCase2") && collisionOn)
@@ -96,7 +91,6 @@ public class Sphere : MonoBehaviour
             collisionOn = false;
             Destroy(gameObject, 2);
         }
-
     }
 
     IEnumerator AddForceFinisher()
@@ -129,7 +123,4 @@ public class Sphere : MonoBehaviour
         sphereCase3.sphereCount++;
         sphereCase3.cubeCountText.text = sphereCase3.sphereCount + "/ 30";
     }
-
-
-
 }

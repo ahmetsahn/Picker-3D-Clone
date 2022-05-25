@@ -11,9 +11,9 @@ public class HookController : MonoBehaviour
     private float verticalSpeed = 5;
     private float xRange = 2.2f;
     public bool stop = false;
-    private float cubeCaseStopPosition = 53f;
-    private float cubeCase2StopPosition = 123f;
-    private float cubeCase3StopPosition = 183.4f;
+    private float sphereCaseStopPosition = 53f;
+    private float sphereCase2StopPosition = 123f;
+    private float sphereCase3StopPosition = 183.4f;
     public bool canPass;
     public bool canPass2;
     public bool canPass3;
@@ -45,19 +45,19 @@ public class HookController : MonoBehaviour
 
     private void PositionControl()
     {
-        if (transform.position.z > cubeCaseStopPosition)
+        if (transform.position.z > sphereCaseStopPosition)
         {
             stop = true;
             CanPassControl();
         }
 
-        if (transform.position.z > cubeCase2StopPosition)
+        if (transform.position.z > sphereCase2StopPosition)
         {
             stop = true;
             CanPass2Control();
         }
 
-        if (transform.position.z > cubeCase3StopPosition)
+        if (transform.position.z > sphereCase3StopPosition)
         {
             stop = true;
             CanPass3Control();
