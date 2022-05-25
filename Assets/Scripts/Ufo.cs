@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plane : MonoBehaviour
+public class Ufo : MonoBehaviour
 {
     [SerializeField] GameObject cubePrefab;
     HookController hookController;
@@ -26,36 +26,40 @@ public class Plane : MonoBehaviour
 
     void FixedUpdate()
     {
-        
-        if(hookController.canPass2)
+        Move();
+    }
+
+    private void Move()
+    {
+        if (hookController.canPass2)
         {
-            if(goRightPos)
+            if (goRightPos)
             {
-                     StartCoroutine(SecondMove());
-                     Vector3 rightPos = new Vector3(transform.position.x + 2, transform.position.y, transform.position.z);
-                     transform.position = Vector3.MoveTowards(transform.position, rightPos, Time.deltaTime * 10);
+                StartCoroutine(SecondMove());
+                Vector3 rightPos = new Vector3(transform.position.x + 2, transform.position.y, transform.position.z);
+                transform.position = Vector3.MoveTowards(transform.position, rightPos, Time.deltaTime * 10);
             }
 
-            else if(goForwardPos)
-            {  
-                    StartCoroutine(ThirdMove());
-                    Vector3 forwardPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 15);
-                    transform.position = Vector3.MoveTowards(transform.position, forwardPos, Time.deltaTime * 10);
+            else if (goForwardPos)
+            {
+                StartCoroutine(ThirdMove());
+                Vector3 forwardPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 15);
+                transform.position = Vector3.MoveTowards(transform.position, forwardPos, Time.deltaTime * 10);
 
-                if(instantiateCube)
+                if (instantiateCube)
                 {
                     StartCoroutine(InstantiateTrue());
                     Instantiate(cubePrefab, transform.position, Quaternion.identity);
                     instantiateCube = false;
                 }
-              
+
             }
 
-            else if(goLeftPos)
-            {   
-                    StartCoroutine(FourthMove());
-                    Vector3 leftPos = new Vector3(transform.position.x - 4, transform.position.y, transform.position.z);
-                    transform.position = Vector3.MoveTowards(transform.position, leftPos, Time.deltaTime * 10);
+            else if (goLeftPos)
+            {
+                StartCoroutine(FourthMove());
+                Vector3 leftPos = new Vector3(transform.position.x - 4, transform.position.y, transform.position.z);
+                transform.position = Vector3.MoveTowards(transform.position, leftPos, Time.deltaTime * 10);
 
                 if (instantiateCube)
                 {
@@ -65,11 +69,11 @@ public class Plane : MonoBehaviour
                 }
             }
 
-            else if(goForwardPos2)
+            else if (goForwardPos2)
             {
-                     StartCoroutine(FifthMove());
-                     Vector3 forwardPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 15);
-                     transform.position = Vector3.MoveTowards(transform.position, forwardPos, Time.deltaTime * 10);
+                StartCoroutine(FifthMove());
+                Vector3 forwardPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 15);
+                transform.position = Vector3.MoveTowards(transform.position, forwardPos, Time.deltaTime * 10);
 
                 if (instantiateCube)
                 {
@@ -79,12 +83,12 @@ public class Plane : MonoBehaviour
                 }
             }
 
-            else if(goRightPos2)
+            else if (goRightPos2)
             {
 
-                    StartCoroutine(SixthMove());
-                    Vector3 midPos = new Vector3(transform.position.x +2, transform.position.y, transform.position.z);
-                    transform.position = Vector3.MoveTowards(transform.position, midPos, Time.deltaTime * 10);
+                StartCoroutine(SixthMove());
+                Vector3 midPos = new Vector3(transform.position.x + 2, transform.position.y, transform.position.z);
+                transform.position = Vector3.MoveTowards(transform.position, midPos, Time.deltaTime * 10);
 
                 if (instantiateCube)
                 {
@@ -97,9 +101,9 @@ public class Plane : MonoBehaviour
 
             else if (goForwardPos3)
             {
-                    StartCoroutine(SeventhMove());
-                    Vector3 forwardPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 15);
-                    transform.position = Vector3.MoveTowards(transform.position, forwardPos, Time.deltaTime * 10);
+                StartCoroutine(SeventhMove());
+                Vector3 forwardPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 15);
+                transform.position = Vector3.MoveTowards(transform.position, forwardPos, Time.deltaTime * 10);
 
                 if (instantiateCube)
                 {
@@ -109,7 +113,7 @@ public class Plane : MonoBehaviour
                 }
             }
 
-            else if(goLeftPos2)
+            else if (goLeftPos2)
             {
                 StartCoroutine(EighthMove());
                 Vector3 leftPos = new Vector3(transform.position.x - 4, transform.position.y, transform.position.z);
@@ -123,7 +127,7 @@ public class Plane : MonoBehaviour
                 }
             }
 
-            else if(goForwardPos4)
+            else if (goForwardPos4)
             {
                 StartCoroutine(NinthMove());
                 Vector3 forwardPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 15);
@@ -137,7 +141,7 @@ public class Plane : MonoBehaviour
                 }
             }
 
-            else if(goRightPos3)
+            else if (goRightPos3)
             {
                 StartCoroutine(TenthMove());
                 Vector3 midPos = new Vector3(transform.position.x + 2, transform.position.y, transform.position.z);
@@ -151,13 +155,13 @@ public class Plane : MonoBehaviour
                 }
             }
 
-            else if(goUpPos)
+            else if (goUpPos)
             {
                 StartCoroutine(DestroyPlane());
-                Vector3 upPos = new Vector3(transform.position.x, transform.position.y+40, transform.position.z);
+                Vector3 upPos = new Vector3(transform.position.x, transform.position.y + 40, transform.position.z);
                 transform.position = Vector3.MoveTowards(transform.position, upPos, Time.deltaTime * 20);
             }
-        }    
+        }
     }
 
     IEnumerator SecondMove()

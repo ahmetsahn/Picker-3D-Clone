@@ -5,9 +5,9 @@ using UnityEngine;
 public class Sphere : MonoBehaviour
 {
     [SerializeField] private Transform hook;
-    CubeCase cubeCase;
-    CubeCase2 cubeCase2;
-    CubeCase3 cubeCase3;
+    SphereCase sphereCase;
+    SphereCase2 sphereCase2;
+    SphereCase3 sphereCase3;
     HookController hookController;
     Rigidbody rb;
     MeshRenderer meshRenderer;
@@ -20,9 +20,9 @@ public class Sphere : MonoBehaviour
         hook = GameObject.Find("Hook").GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
         meshRenderer = GetComponent<MeshRenderer>();
-        cubeCase = GameObject.Find("Cube Case").GetComponent<CubeCase>();
-        cubeCase2 = GameObject.Find("Cube Case 2").GetComponent<CubeCase2>();
-        cubeCase3 = GameObject.Find("Cube Case 3").GetComponent<CubeCase3>();
+        sphereCase = GameObject.Find("Sphere Case").GetComponent<SphereCase>();
+        sphereCase2 = GameObject.Find("Sphere Case 2").GetComponent<SphereCase2>();
+        sphereCase3 = GameObject.Find("Sphere Case 3").GetComponent<SphereCase3>();
         hookController = GameObject.Find("Hook").GetComponent<HookController>();
     }
    
@@ -75,7 +75,7 @@ public class Sphere : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("CubeCase") && collisionOn)
+        if (collision.gameObject.CompareTag("SphereCase") && collisionOn)
         {
             StartCoroutine(setColor());
             collisionOn = false;
@@ -83,14 +83,14 @@ public class Sphere : MonoBehaviour
             
         }
 
-        if(collision.gameObject.CompareTag("CubeCase2") && collisionOn)
+        if(collision.gameObject.CompareTag("SphereCase2") && collisionOn)
         {
             StartCoroutine(setColor2());
             collisionOn = false;
             Destroy(gameObject, 2);
         }
 
-        if (collision.gameObject.CompareTag("CubeCase3") && collisionOn)
+        if (collision.gameObject.CompareTag("SphereCase3") && collisionOn)
         {
             StartCoroutine(setColor3());
             collisionOn = false;
@@ -109,8 +109,8 @@ public class Sphere : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         meshRenderer.material.color = Color.green;
-        cubeCase.sphereCount++;
-        cubeCase.cubeCountText.text = cubeCase.sphereCount + "/ 10";
+        sphereCase.sphereCount++;
+        sphereCase.cubeCountText.text = sphereCase.sphereCount + "/ 10";
         collisionOn = true;
     }
 
@@ -118,16 +118,16 @@ public class Sphere : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         meshRenderer.material.color = Color.green;
-        cubeCase2.sphereCount++;
-        cubeCase2.cubeCountText.text = cubeCase2.sphereCount + "/ 20";
+        sphereCase2.sphereCount++;
+        sphereCase2.cubeCountText.text = sphereCase2.sphereCount + "/ 20";
     }
 
     IEnumerator setColor3()
     {
         yield return new WaitForSeconds(1);
         meshRenderer.material.color = Color.green;
-        cubeCase3.sphereCount++;
-        cubeCase3.cubeCountText.text = cubeCase3.sphereCount + "/ 30";
+        sphereCase3.sphereCount++;
+        sphereCase3.cubeCountText.text = sphereCase3.sphereCount + "/ 30";
     }
 
 

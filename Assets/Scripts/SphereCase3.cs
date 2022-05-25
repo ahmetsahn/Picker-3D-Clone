@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class CubeCase : MonoBehaviour
+public class SphereCase3 : MonoBehaviour
 {
     public TMP_Text cubeCountText;
     HookController hookController;
     public int sphereCount;
-    
+
     private void Start()
     {
         hookController = GameObject.Find("Hook").GetComponent<HookController>();
@@ -16,20 +16,20 @@ public class CubeCase : MonoBehaviour
 
     private void Update()
     {
-        sphereCountControl();  
+        sphereCountControl();
     }
 
     private void sphereCountControl()
     {
-        if (sphereCount >= 10)
+        if (sphereCount >= 30)
         {
-            StartCoroutine(PassDelay());
+            StartCoroutine(PassDelay2());
         }
     }
 
-    IEnumerator PassDelay()
+    IEnumerator PassDelay2()
     {
-        yield return new WaitForSeconds(2);
-        hookController.canPass = true;
+        yield return new WaitForSeconds(2f);
+        hookController.canPass3 = true;
     }
 }

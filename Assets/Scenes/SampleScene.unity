@@ -1444,8 +1444,8 @@ GameObject:
   - component: {fileID: 132317172}
   - component: {fileID: 132317176}
   m_Layer: 0
-  m_Name: Cube Case
-  m_TagString: CubeCase
+  m_Name: Sphere Case
+  m_TagString: SphereCase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4449,8 +4449,8 @@ GameObject:
   - component: {fileID: 679306423}
   - component: {fileID: 679306427}
   m_Layer: 0
-  m_Name: Cube Case 3
-  m_TagString: CubeCase3
+  m_Name: Sphere Case 3
+  m_TagString: SphereCase3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5700,8 +5700,8 @@ GameObject:
   - component: {fileID: 880001667}
   - component: {fileID: 880001671}
   m_Layer: 0
-  m_Name: Cube Case 2
-  m_TagString: CubeCase2
+  m_Name: Sphere Case 2
+  m_TagString: SphereCase2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8841,7 +8841,7 @@ GameObject:
   - component: {fileID: 1416899542}
   - component: {fileID: 1416899543}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Ufo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

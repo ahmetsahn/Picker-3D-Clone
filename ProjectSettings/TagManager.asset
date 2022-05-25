@@ -7,10 +7,9 @@ TagManager:
   - Buffer
   - Hook
   - Sphere
-  - CubeCase
-  - CubeCase2
-  - CubeCase3
-  - Finisher
+  - SphereCase
+  - SphereCase2
+  - SphereCase3
   layers:
   - Default
   - TransparentFX
