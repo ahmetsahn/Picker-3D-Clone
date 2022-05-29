@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rotate : MonoBehaviour
+public class LeftRotate : MonoBehaviour
 {
     void Update()
     {
-        transform.Rotate(0, 5, 0);
+        transform.Rotate(0,3,0);
     }
 }

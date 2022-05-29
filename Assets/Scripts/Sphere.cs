@@ -13,7 +13,7 @@ public class Sphere : MonoBehaviour
     MeshRenderer meshRenderer;
     private bool collisionOn = true;
     private bool addForceOn = true;
-    private float thrust = 2.5f;
+    private float thrust = 1.5f;
 
     private void Awake()
     {

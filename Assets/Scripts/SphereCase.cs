@@ -29,7 +29,7 @@ public class SphereCase : MonoBehaviour
 
     IEnumerator PassDelay()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2f);
         hookController.canPass = true;
     }
 }

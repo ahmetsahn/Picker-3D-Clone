@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FollowPoint : MonoBehaviour
 {
-    private float verticalSpeed = 7;
+    private float verticalSpeed = 5;
     HookController hookController;
 
     private void Start()

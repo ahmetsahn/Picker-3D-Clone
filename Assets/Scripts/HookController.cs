@@ -8,7 +8,7 @@ public class HookController : MonoBehaviour
     [SerializeField] private GameObject rightCylinder;
     private float horizontalInput;
     private float horizontalSpeed=7;
-    private float verticalSpeed = 7;
+    private float verticalSpeed = 5;
     private float xRange = 2.2f;
     private float sphereCaseStopPosition = 53f;
     private float sphereCase2StopPosition = 123f;
