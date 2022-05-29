@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FollowPoint : MonoBehaviour
 {
-    private float verticalSpeed = 5;
+    private float verticalSpeed = 7;
     HookController hookController;
 
     private void Start()
@@ -14,10 +14,14 @@ public class FollowPoint : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(hookController.stop==false)
+        HookStopControl();
+    }
+
+    private void HookStopControl()
+    {
+        if (hookController.stop == false)
         {
             transform.Translate(Vector3.forward * verticalSpeed * Time.deltaTime);
         }
-        
     }
 }

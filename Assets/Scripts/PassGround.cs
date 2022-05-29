@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PassGround : MonoBehaviour
+public class PassGround : PassGroundBase
 {
     HookController hookController;
    
@@ -13,11 +13,15 @@ public class PassGround : MonoBehaviour
 
     private void Update()
     {
-        if(hookController.canPass)
+        canPassControl();
+    }
+
+    private void canPassControl()
+    {
+        if (hookController.canPass)
         {
-               Vector3 firsPos = transform.position;
-               Vector3 lastPos = new Vector3(transform.position.x,0,transform.position.z);
-               transform.position = Vector3.MoveTowards(firsPos, lastPos, Time.deltaTime *4);
+            MovePassGround();
         }
     }
 }
+

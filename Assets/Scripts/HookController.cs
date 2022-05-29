@@ -8,15 +8,15 @@ public class HookController : MonoBehaviour
     [SerializeField] private GameObject rightCylinder;
     private float horizontalInput;
     private float horizontalSpeed=7;
-    private float verticalSpeed = 5;
+    private float verticalSpeed = 7;
     private float xRange = 2.2f;
-    public bool stop = false;
     private float sphereCaseStopPosition = 53f;
     private float sphereCase2StopPosition = 123f;
     private float sphereCase3StopPosition = 183.4f;
     public bool canPass;
     public bool canPass2;
     public bool canPass3;
+    public bool stop;
 
     void FixedUpdate()
     {
