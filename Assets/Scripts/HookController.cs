@@ -6,8 +6,6 @@ public class HookController : MonoBehaviour
 {
     [SerializeField] private GameObject leftCylinder;
     [SerializeField] private GameObject rightCylinder;
-    private float horizontalInput;
-    private float horizontalSpeed=7;
     private float verticalSpeed = 5;
     private float xRange = 2.2f;
     private float sphereCaseStopPosition = 53f;
@@ -17,6 +15,8 @@ public class HookController : MonoBehaviour
     public bool canPass2;
     public bool canPass3;
     public bool stop;
+    private bool touching;
+    Vector3 lastPos;
 
     void FixedUpdate()
     {
@@ -66,9 +66,33 @@ public class HookController : MonoBehaviour
 
     private void HookMove()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * horizontalInput * horizontalSpeed * Time.deltaTime);
+      
         transform.Translate(Vector3.forward * verticalSpeed * Time.deltaTime);
+
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            touching = true;
+
+            if (touching)
+            {
+                lastPos = new Vector3((Camera.main.ScreenToViewportPoint(touch.position).x - 0.5f) * 8.8f, transform.position.y, transform.position.z);
+
+                // Camera.main.ScreenToViewportPoint(touch.position) takes a value between 0 and 1
+                // When the player is at 0, Camera.main.ScreenToViewportPoint(touch.position) is at 0.5
+                // So 0.5 is subtracted
+                // The player can move between -4 and 4 on the x-axis. Difference 4.4. So it is multiplied by 4.4 but multiplied by 8.8 for better gameplay
+                // You need to arrange these numbers according to yourself.
+                // Example : The range your player can move on the x-axis is -5 to 5. Difference 10. So it is multiplied by 10.
+
+                transform.position = Vector3.Lerp(transform.position, lastPos, Time.deltaTime * 3);
+            }
+
+            if (touch.phase == TouchPhase.Ended)
+            {
+                touching = false;
+            }
+        }
 
         if (transform.position.x < -xRange)
         {
