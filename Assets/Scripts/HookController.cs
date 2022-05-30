@@ -6,7 +6,7 @@ public class HookController : MonoBehaviour
 {
     [SerializeField] private GameObject leftCylinder;
     [SerializeField] private GameObject rightCylinder;
-    private float verticalSpeed = 5;
+    private float verticalSpeed = 7;
     private float xRange = 2.2f;
     private float sphereCaseStopPosition = 53f;
     private float sphereCase2StopPosition = 123f;
@@ -85,7 +85,7 @@ public class HookController : MonoBehaviour
                 // You need to arrange these numbers according to yourself.
                 // Example : The range your player can move on the x-axis is -5 to 5. Difference 10. So it is multiplied by 10.
 
-                transform.position = Vector3.Lerp(transform.position, lastPos, Time.deltaTime * 3);
+                transform.position = Vector3.Lerp(transform.position, lastPos, Time.deltaTime * 5);
             }
 
             if (touch.phase == TouchPhase.Ended)

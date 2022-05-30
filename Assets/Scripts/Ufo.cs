@@ -1,23 +1,23 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ufo : MonoBehaviour
 {
     [SerializeField] GameObject spherePrefab;
     HookController hookController;
-    private bool goRightPos = true;
-    private bool goRightPos2 = false;
-    private bool goRightPos3 = false;
-    private bool goForwardPos =false;
-    private bool goForwardPos2 = false;
-    private bool goForwardPos3 = false; 
-    private bool goForwardPos4 = false;
-    private bool goLeftPos = false;
-    private bool goLeftPos2 = false;
-    private bool goUpPos = false;
+    public bool goRightPos = true;
+    public bool goRightPos2 = false;
+    public bool goRightPos3 = false;
+    public bool goForwardPos =false;
+    public bool goForwardPos2 = false;
+    public bool goForwardPos3 = false; 
+    public bool goForwardPos4 = false;
+    public bool goLeftPos = false;
+    public bool goLeftPos2 = false;
+    public bool goUpPos = false;
     private bool instantiateSphere = true;
-    private float speed = 7;
+    private float speed = 8;
+    private bool canMove = true;
 
 
 
@@ -30,213 +30,187 @@ public class Ufo : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+        MoveControl();
+    }
+
+    private void MoveControl()
+    {
+        if (hookController.canPass2 && canMove)
+        {
+            StartCoroutine(AllMove());
+            canMove = false;
+        }
     }
 
     private void Move()
     {
-        if (hookController.canPass2)
+        if (hookController.canPass2 && goRightPos)
         {
-            if (goRightPos)
-            {
-                StartCoroutine(SecondMove());
-                transform.Translate(Vector3.right * speed * Time.deltaTime);
-            }
 
-            else if (goForwardPos)
-            {
-                StartCoroutine(ThirdMove());
-                transform.Translate(Vector3.forward * speed * Time.deltaTime);
-                
-                if (instantiateSphere)
-                {
-                    StartCoroutine(InstantiateTrue());
-                    InstantiateSphere();
-                }
-            }
+            transform.Translate(Vector3.right * 5 * Time.deltaTime);
+        }
 
-            else if (goLeftPos)
-            {
-                StartCoroutine(FourthMove());
-                transform.Translate(Vector3.left * speed * Time.deltaTime);
-                
-                if (instantiateSphere)
-                {
-                    StartCoroutine(InstantiateTrue());
-                    InstantiateSphere();
-                }
-            }
+        else if (goForwardPos)
+        {
 
-            else if (goForwardPos2)
-            {
-                StartCoroutine(FifthMove());
-                transform.Translate(Vector3.forward * speed * Time.deltaTime);
-                
-                if (instantiateSphere)
-                {
-                    StartCoroutine(InstantiateTrue());
-                    InstantiateSphere();
-                }
-            }
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
-            else if (goRightPos2)
+            if (instantiateSphere)
             {
-                StartCoroutine(SixthMove());
-                transform.Translate(Vector3.right * speed * Time.deltaTime);
-                
-                if (instantiateSphere)
-                {
-                    StartCoroutine(InstantiateTrue());
-                    InstantiateSphere();
-                }
+                StartCoroutine(InstantiateTrue());
+                InstantiateSphere();
             }
+        }
 
-            else if (goForwardPos3)
-            {
-                StartCoroutine(SeventhMove());
-                transform.Translate(Vector3.forward * speed * Time.deltaTime);
-              
-                if (instantiateSphere)
-                {
-                    StartCoroutine(InstantiateTrue());
-                    InstantiateSphere();
-                }
-            }
+        else if (goLeftPos)
+        {
 
-            else if (goLeftPos2)
-            {
-                StartCoroutine(EighthMove());
-                transform.Translate(Vector3.left * speed * Time.deltaTime);
-               
-                if (instantiateSphere)
-                {
-                    StartCoroutine(InstantiateTrue());
-                    InstantiateSphere();
-                }
-            }
+            transform.Translate(Vector3.left * speed * Time.deltaTime);
 
-            else if (goForwardPos4)
+            if (instantiateSphere)
             {
-                StartCoroutine(NinthMove());
-                transform.Translate(Vector3.forward * speed * Time.deltaTime);
-                
-                if (instantiateSphere)
-                {
-                    StartCoroutine(InstantiateTrue());
-                    InstantiateSphere();
-                }
+                StartCoroutine(InstantiateTrue());
+                InstantiateSphere();
             }
+        }
 
-            else if (goRightPos3)
-            {
-                StartCoroutine(TenthMove());
-                transform.Translate(Vector3.right * speed * Time.deltaTime);
-                
-                if (instantiateSphere)
-                {
-                    StartCoroutine(InstantiateTrue());
-                    InstantiateSphere();
-                }
-            }
+        else if (goForwardPos2)
+        {
 
-            else if (goUpPos)
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+
+            if (instantiateSphere)
             {
-                StartCoroutine(DestroyPlane());
-                transform.Translate(Vector3.up * speed * Time.deltaTime);
+                StartCoroutine(InstantiateTrue());
+                InstantiateSphere();
             }
+        }
+
+        else if (goRightPos2)
+        {
+
+            transform.Translate(Vector3.right * speed * Time.deltaTime);
+
+            if (instantiateSphere)
+            {
+                StartCoroutine(InstantiateTrue());
+                InstantiateSphere();
+            }
+        }
+
+        else if (goForwardPos3)
+        {
+
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+
+            if (instantiateSphere)
+            {
+                StartCoroutine(InstantiateTrue());
+                InstantiateSphere();
+            }
+        }
+
+        else if (goLeftPos2)
+        {
+
+            transform.Translate(Vector3.left * speed * Time.deltaTime);
+
+            if (instantiateSphere)
+            {
+                StartCoroutine(InstantiateTrue());
+                InstantiateSphere();
+            }
+        }
+
+        else if (goForwardPos4)
+        {
+
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+
+            if (instantiateSphere)
+            {
+                StartCoroutine(InstantiateTrue());
+                InstantiateSphere();
+            }
+        }
+
+        else if (goRightPos3)
+        {
+
+            transform.Translate(Vector3.right * speed * Time.deltaTime);
+
+            if (instantiateSphere)
+            {
+                StartCoroutine(InstantiateTrue());
+                InstantiateSphere();
+            }
+        }
+
+        else if (goUpPos)
+        {
+
+            transform.Translate(Vector3.up * speed * Time.deltaTime);
         }
     }
 
     private void InstantiateSphere()
-    {
-        Vector3 instantiatePos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        Instantiate(spherePrefab, instantiatePos, Quaternion.identity);
+    {  
+        Instantiate(spherePrefab, transform.position, Quaternion.identity);
         instantiateSphere = false;
     }
 
-    IEnumerator SecondMove()
+    IEnumerator AllMove()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.25f);
         goRightPos = false;
-        yield return new WaitForSeconds(0.15f);
+        
         goForwardPos = true;
- 
-    }
-
-    IEnumerator ThirdMove()
-    {
         yield return new WaitForSeconds(0.7f);
         goForwardPos = false;
-        yield return new WaitForSeconds(0.15f);
+        
         goLeftPos = true;
-    }
-
-    IEnumerator FourthMove()
-    {
-        yield return new WaitForSeconds(0.6f);
-        goLeftPos=false;
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.5f);
+        goLeftPos = false;
+        
         goForwardPos2 = true;
-    }
-
-
-    IEnumerator FifthMove()
-    {
         yield return new WaitForSeconds(0.7f);
         goForwardPos2 = false;
-        yield return new WaitForSeconds(0.15f);
+        
         goRightPos2 = true;
-    }
-
-    IEnumerator SixthMove()
-    {
-        yield return new WaitForSeconds(0.6f);
-        goRightPos2=false;
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.5f);
+        goRightPos2 = false;
+        
         goForwardPos3 = true;
-    }
-
-    IEnumerator SeventhMove()
-    {
         yield return new WaitForSeconds(0.7f);
         goForwardPos3 = false;
-        yield return new WaitForSeconds(0.15f);
+        
         goLeftPos2 = true;
-    }
-
-    IEnumerator EighthMove()
-    {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.5f);
         goLeftPos2 = false;
-        yield return new WaitForSeconds(0.15f);
+        
         goForwardPos4 = true;
-    }
-
-    IEnumerator NinthMove()
-    {
         yield return new WaitForSeconds(0.7f);
         goForwardPos4 = false;
-        yield return new WaitForSeconds(0.15f);
+        
         goRightPos3 = true;
-    }
-
-    IEnumerator TenthMove()
-    {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.5f);
         goRightPos3 = false;
         goUpPos = true;
-    }
-
-    IEnumerator DestroyPlane()
-    {
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 
+    
+
+   
+
+  
     IEnumerator InstantiateTrue()
     {
         yield return new WaitForSeconds(0.1f);
         instantiateSphere = true;
     }
+
 
     
 
