@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 1361
+  controlID: 5823
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 1362
+  controlID: 5778
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 1356
+  controlID: 5757
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -478,9 +478,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.2858312, y: -1.1110682, z: 211.1211}
+    m_Target: {x: 0.8687806, y: -15.795252, z: 23.630377}
     speed: 2
-    m_Value: {x: 0.2858312, y: -1.1110682, z: 211.1211}
+    m_Value: {x: 0.8687806, y: -15.795252, z: 23.630377}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -527,13 +527,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.19602819, y: -0.11105362, z: 0.0232746, w: -0.97452545}
+    m_Target: {x: -0.43752152, y: 0.5598878, z: -0.45054546, w: -0.54140306}
     speed: 2
-    m_Value: {x: -0.1959301, y: -0.11099805, z: 0.023262953, w: -0.97403777}
+    m_Value: {x: -0.43730116, y: 0.55960584, z: -0.45031855, w: -0.54113036}
   m_Size:
-    m_Target: 11.991694
+    m_Target: 18.970697
     speed: 2
-    m_Value: 11.991694
+    m_Value: 18.970697
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -632,7 +632,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\ahmet\Picker-3D-Clone
   m_LockTracker:
